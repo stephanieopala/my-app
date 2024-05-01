@@ -11,6 +11,7 @@ export default {
       'primary-light': '#6497b1',
       'light-gray': '#ededed',
       'dark-gray': '#adadad',
+      'table-head': '#f2f2f2',
       'white': '#fff',
       'error': '#ff3333'
     },

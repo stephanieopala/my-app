@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="py-4 px-3 sm:px-20">
+    <nav className="pb-6 px-3 sm:px-20">
       <div className="flex justify-between">
         <p className="text-primary"><RouterLink to="/">WALLET</RouterLink></p>
         <ul className="hidden sm:flex gap-x-4">
@@ -16,7 +16,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>
-          <p>Menu</p>
+          <p className="hover:text-primary cursor-pointer">Menu</p>
         </div>
       </div>
       <ul className={isOpen ? "flex flex-col sm:hidden" : "hidden"}>
