@@ -55,7 +55,8 @@ const CoinDetails = () => {
               </span>
             </p>
             <p className='font-medium'>24-hour percentage change:
-              <span className='font-normal'>
+              <span className={coinInfo?.data?.market_data?.price_change_percentage_24h < 0
+                    ? "text-error" : "font-normal"}>
                 {coinInfo?.data?.market_data?.price_change_percentage_24h.toLocaleString()}
               </span>
             </p>
@@ -67,8 +68,6 @@ const CoinDetails = () => {
                 <a href={coinInfo?.data?.links?.homepage[0]} className='hover:text-primary'> {coinInfo?.data?.links?.homepage[0]}</a>
               </span>
             </p>
-            {/* <p className='font-medium'>Market Cap: <span className='font-normal'>{coinInfo?.data?.market_data?.price_change_24h}</span></p> */}
-            {/* <p className='font-medium'>24-hour percentage change: <span className='font-normal'>{coinInfo?.data?.market_data?.price_change_24h}</span></p> */}
             <p className='font-medium'>Description: <span className='font-normal'>{coinInfo.data?.description?.en}</span></p>
           </div>
         </div>

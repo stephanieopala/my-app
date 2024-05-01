@@ -54,14 +54,20 @@ const Home = () => {
                   </div>
                 </td>
                 <td>
-                  <div className="flex flex-col gap-x-4">
+                  <div className="flex flex-col gap-y-2">
                     <p>{coin.name}</p>
                     <p className="text-dark-gray">{coin.symbol?.toUpperCase()}</p>
                   </div>
                 </td>
                 <td>{`$ ${coin.current_price.toLocaleString()}`}</td>
                 <td>{`$ ${coin.market_cap.toLocaleString()}`}</td>
-                <td>{coin.price_change_percentage_24h}</td>
+                <td>
+                  <p className={coin.price_change_percentage_24h < 0
+                    ? "text-error" : "font-normal"}
+                  >
+                    {coin.price_change_percentage_24h}
+                  </p>
+                </td>
               </tr>
             ))}
           </tbody>
