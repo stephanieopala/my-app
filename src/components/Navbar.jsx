@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link as RouterLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,12 +7,22 @@ const Navbar = () => {
   return (
     <nav className="pb-6 px-3 sm:px-20">
       <div className="flex justify-between">
-        <p className="text-primary"><RouterLink to="/">WALLET</RouterLink></p>
+        <p className="text-primary">WALLET</p>
         <ul className="hidden sm:flex gap-x-4">
-          <li><RouterLink className='hover:text-primary font-semibold' to="/">Dashboard</RouterLink></li>
-          <li><RouterLink className='hover:text-primary font-semibold' to="/signup">Sign Up</RouterLink></li>
           <li>
-            <RouterLink className='hover:text-primary font-semibold' to="/signin">Sign In</RouterLink>
+            <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/">
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/signup">
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/signin">
+              Sign In
+            </NavLink>
           </li>
         </ul>
         <div className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>
@@ -20,10 +30,20 @@ const Navbar = () => {
         </div>
       </div>
       <ul className={isOpen ? "flex flex-col sm:hidden" : "hidden"}>
-        <li><RouterLink className='hover:text-primary font-semibold' to="/">Dashboard</RouterLink></li>
-        <li><RouterLink className='hover:text-primary font-semibold' to="/signup">Sign Up</RouterLink></li>
         <li>
-          <RouterLink className='hover:text-primary font-semibold' to="/signin">Sign In</RouterLink>
+          <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/">
+            Dashboard
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/signup">
+            Sign Up
+          </NavLink>
+        </li>
+        <li>
+          <NavLink className={({ isActive }) => isActive ? 'text-primary font-semibold' : 'hover:text-primary font-semibold'} to="/signin">
+            Sign In
+          </NavLink>
         </li>
       </ul>
     </nav>

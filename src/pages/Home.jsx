@@ -2,15 +2,10 @@ import { useEffect, useState } from "react";
 import axiosInstance from "../api/api";
 import { useNavigate } from 'react-router-dom';
 import Skeleton from "../components/Skeleton";
-// import TablePagination from "../components/TablePagination";
 
 const Home = () => {
   const [coins, setCoins] = useState({ isLoading: true, data: [] });
   const navigate = useNavigate();
-  // const [controller, setController] = useState({
-  //   page: 1,
-  //   rowsPerPage: 10,
-  // });
 
   useEffect(() => {
     const getData = async () => {
@@ -27,21 +22,6 @@ const Home = () => {
     };
     getData();
   }, [])
-// setController()
-  // const handlePageChange = (event, newPage) => {
-  //   setController({
-  //     ...controller,
-  //     page: newPage
-  //   });
-  // };
-
-  // const handleRowsPerPageChange = (event) => {
-  //   setController({
-  //     ...controller,
-  //     rowsPerPage: parseInt(event.target.value, 10),
-  //     page: 0
-  //   });
-  // };
 
   const displayLoading = coins.isLoading;
   const displayError = Boolean(!coins.isLoading && coins.error);
@@ -68,13 +48,13 @@ const Home = () => {
                 className="border-b border-light-gray hover:bg-table-head cursor-pointer"
                 onClick={() => navigate(`/${coin.id}`, { state: { data: coin }})}
               >
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-2 sm:px-6 py-4">
                   <div className="w-10 h-auto">
                     <img src={coin.image} alt="logo"/>
                   </div>
                 </td>
                 <td>
-                  <div className="flex gap-x-4">
+                  <div className="flex flex-col gap-x-4">
                     <p>{coin.name}</p>
                     <p className="text-dark-gray">{coin.symbol?.toUpperCase()}</p>
                   </div>
@@ -84,11 +64,6 @@ const Home = () => {
                 <td>{coin.price_change_percentage_24h}</td>
               </tr>
             ))}
-            {/* <tr>
-              <TablePagination
-                currentPage={controller.page}
-              />
-            </tr> */}
           </tbody>
         </table>
         {displayUnavailable && (
