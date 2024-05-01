@@ -2,6 +2,7 @@
 
 ## Technologies used
 React, Vite, TailwindCSS, JavaScript
+This project uses the Coin Gecko free API.
 
 ## Features
 ### Home Page / Dashboard
@@ -30,7 +31,10 @@ User sign in page.
 git clone https://github.com/stephanieopala/my-app.git
 ```
 - Run ```npm install ``` on your terminal
+- Go to [Coin Gecko](https://docs.coingecko.com/reference/introduction), create an account and get the API key.
+This is required to access the APIs.
+- Store the API key in an environment variable in your local project.
 - Run ```npm run dev ```
-- Project opens in your browser at ```port 5173```
+- Open the project in your browser at ```port 5173```
 
 
